@@ -1,8 +1,15 @@
+import fs from 'fs';
 import chalk from 'chalk';
 
-console.log(chalk.blue('hello world'));
+function getFile(path) {
+    const encoding = 'utf-8';
+    fs.readFile(path, encoding, (_, text) => {
+        console.log(chalk.green(text))
+    })
+}
 
-console.log('olá mundo');
+getFile('./arquivos/texto.md');
+
 
 console.log(`
 CPU: ${chalk.red('90%')}
